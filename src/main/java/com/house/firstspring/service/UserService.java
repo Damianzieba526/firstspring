@@ -4,6 +4,7 @@ import com.house.firstspring.domain.User;
 import com.house.firstspring.domain.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,9 +23,12 @@ public class UserService implements IUserService {
     public void saveUser(User user) {
         userRepository.save(user);
     }
-
+    
     public Optional<User> getOneById(Long id) {
         return userRepository.findById(id);
+    }
+    public List<User> findAllUser(){
+        return (List<User>) userRepository.findAll();
     }
 
     public void deleteUser(User user) {
